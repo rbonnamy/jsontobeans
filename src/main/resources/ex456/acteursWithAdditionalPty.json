@@ -1,0 +1,18 @@
+[
+	 {
+		"title": "Emily Blunt",
+		"pageid": 1054604,
+		"dateNaissance" : "12/12/1985",
+		"text": {
+			"*": "Coucou"
+		}
+	},
+	{
+		"title": "Jennifer Lawrence",
+		"pageid": 1054605,
+		"dateNaissance" : "12/12/1995",
+		"text": {
+			"*": "Hello"
+		}
+	}
+]
