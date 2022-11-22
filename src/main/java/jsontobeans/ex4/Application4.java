@@ -9,14 +9,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jsontobeans.communs.Configuration;
-
 public class Application4 {
 
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+		
+		String filePath = ClassLoader.getSystemClassLoader().getResource("ex456/acteursWithAdditionalPty.json").getFile();
+		
 		ObjectMapper mapper = new ObjectMapper();
-
-		List<ActeurWithIgnoreDto> acteurs = mapper.readValue(new File(Configuration.BASE_URL+"src\\main\\resources\\ex456\\acteursWithAdditionalPty.json"),new TypeReference<List<ActeurWithIgnoreDto>>(){});
+		List<ActeurWithIgnoreDto> acteurs = mapper.readValue(new File(filePath),new TypeReference<List<ActeurWithIgnoreDto>>(){});
 		for (ActeurWithIgnoreDto acteur : acteurs) {
 			System.out.println(acteur);
 		}

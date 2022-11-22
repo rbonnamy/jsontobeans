@@ -7,14 +7,14 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jsontobeans.communs.Configuration;
-
 public class Application2 {
 
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+		
+		String filePath = ClassLoader.getSystemClassLoader().getResource("ex2/acteurWithNestedProperty.json").getFile();
+		
 		ObjectMapper mapper = new ObjectMapper();
-
-		ActeurWithNestedPtyDto acteur2 = mapper.readValue(new File(Configuration.BASE_URL+"src\\main\\resources\\ex2\\acteurWithNestedProperty.json"), ActeurWithNestedPtyDto.class);
+		ActeurWithNestedPtyDto acteur2 = mapper.readValue(new File(filePath), ActeurWithNestedPtyDto.class);
 		System.out.println(acteur2);
 		
 	}

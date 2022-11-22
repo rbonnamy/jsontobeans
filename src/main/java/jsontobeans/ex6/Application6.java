@@ -13,11 +13,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 
-import jsontobeans.communs.Configuration;
-
 public class Application6 {
 
 	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
+		
+		String filePath = ClassLoader.getSystemClassLoader().getResource("ex456/acteursWithAdditionalPty.json").getFile();
+		
 		ObjectMapper mapper = new ObjectMapper();
 		
 		JavaTimeModule module = new JavaTimeModule();
@@ -26,7 +27,7 @@ public class Application6 {
         
         mapper.registerModule(module);
 		
-		List<ActeurWithLocalDateDto> acteurs4 = mapper.readValue(new File(Configuration.BASE_URL+"src\\main\\resources\\ex456\\acteursWithAdditionalPty.json"),new TypeReference<List<ActeurWithLocalDateDto>>(){});
+		List<ActeurWithLocalDateDto> acteurs4 = mapper.readValue(new File(filePath),new TypeReference<List<ActeurWithLocalDateDto>>(){});
 		for (ActeurWithLocalDateDto acteur : acteurs4) {
 			System.out.println(acteur);
 		}
